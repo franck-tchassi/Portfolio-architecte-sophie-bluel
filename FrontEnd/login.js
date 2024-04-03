@@ -1,23 +1,35 @@
-export function seConnecter(){
+document.addEventListener("DOMContentLoaded", function(){
 
-	const formulaireLogin = document.querySelector(".formLogin");
+	const formulaireLogin = document.getElementById("formLogin");
 
 	formulaireLogin.addEventListener("submit", function(event){
-		event.preventDefault();
+
+	   event.preventDefault(); 
         
-        //creation d'object login
+           //creation d'object login
 	    const login = {
-		   email:   event.target.querySelector("[name = email]").value,
-		   password: event.target.querySelector("[name = pwd]").value
+		   email:   event.target.querySelector('input[name = "email"]').value,
+		   password: event.target.querySelector('input[name = "pwd"]').value
 	    };
 
-	    //création charge util en format JSON
+	    //convertir le login en format JSON
 	    const chargeUtil = JSON.stringify(login);
 
-	    fetch("http://localhost:5678/api/users/login", function(){
+	    fetch("http://localhost:5678/api/users/login", {
 	    	method: "post",
 	    	headers: {"Content-Type": "application/json"},
 	    	body: chargeUtil
 	    })
+	    .then(res =>{
+		if(res.ok){
+			window.location.href = "index.html"
+		}
+		else{
+			document.getElementById("errEmailAndPwd").style.display = "flex"
+		}
+		})
+	     .catch(err =>{
+                        console.log("erreur de server", err)
+		})
 	})
-}
+})
