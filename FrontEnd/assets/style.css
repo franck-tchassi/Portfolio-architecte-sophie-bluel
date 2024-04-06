@@ -58,6 +58,7 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
@@ -186,6 +187,141 @@ li:hover {
 	width: 100%;
 
 }
+
+/* modifier */
+.modifier{
+	display: none;
+	gap: 12px;
+	position: relative;
+	top: -49px;
+	right: -711px;
+	width: 88px;
+	cursor: pointer;
+}
+.modifier .fa-pen-to-square{
+	font-size: 16px;
+}
+.modifier p{
+	font-weight: 400;
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+
+/* supprimer les photos */
+.supprime-photo{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(209, 184, 184);
+	width: 630px;
+	height: 688px;
+	border-radius: 10px;
+	position: absolute;
+	top: 480px;
+    left: 580px;
+
+}
+.supprime-photo h2{
+	font-family: 'Work Sans' ;
+	font-weight: 400;
+	font-size:26px ;
+	position: relative;
+	top: 65px;
+	color: black;
+	
+	
+}
+.supprime-photo hr{
+	border: 1px solid #B3B3B3;
+	width: 420px;
+	position: relative;
+	top: 532px;
+}
+.supprime-photo #add-picture{
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	border: #1D6154;
+	background-color: #1D6154;
+	color: white;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	position: relative;
+	top: 558px;
+	cursor: pointer;
+}
+.fa-xmark{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	font-size: 19px;
+	cursor: pointer;
+	position: relative;
+	left: 259px;
+	
+}
+/* ajouter photo */
+.ajouter-photo{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(209, 184, 184);
+	width: 630px;
+	height: 688px;
+	border-radius: 10px;
+	position: absolute;
+	top: 480px;
+    left: 580px;
+}
+.ajouter-photo h2{
+	font-family: 'Work Sans' ;
+	font-weight: 400;
+	font-size:26px ;
+	position: relative;
+	top: 65px;
+	color: black;
+}
+.ajouter-photo hr{
+	border: 1px solid #B3B3B3;
+	width: 420px;
+	position: relative;
+	top: 532px;
+}
+.ajouter-photo #valider{
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	border: #1D6154;
+	background-color: #A7A7A7;
+	color: white;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	position: relative;
+	top: 558px;
+	cursor: pointer;
+}
+.fa-arrow-left{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	font-size: 19px;
+	cursor: pointer;
+	position: relative;
+	left: -259px;
+}
+.ajouter-photo .icone{
+	display: flex;
+
+}
+
+
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -234,4 +370,3 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
-
