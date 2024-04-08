@@ -212,13 +212,14 @@ li:hover {
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgb(209, 184, 184);
-	width: 630px;
-	height: 688px;
+	background-color: white;
+	width: 760px;
+	height: 855px;
 	border-radius: 10px;
 	position: absolute;
 	top: 480px;
-    left: 580px;
+    left: 540px;
+	
 
 }
 .supprime-photo h2{
@@ -232,14 +233,15 @@ li:hover {
 	
 }
 .supprime-photo hr{
-	border: 1px solid #B3B3B3;
-	width: 420px;
+	border: 1px solid #070505;
+	width: 522px;
 	position: relative;
-	top: 532px;
+	
+	margin-top: 282px;
 }
 .supprime-photo #add-picture{
-	width: 237px;
-	height: 36px;
+	width: 268px;
+	height: 56px;
 	border-radius: 60px;
 	border: #1D6154;
 	background-color: #1D6154;
@@ -248,8 +250,9 @@ li:hover {
 	font-weight: 700;
 	font-size: 14px;
 	position: relative;
-	top: 558px;
+	top: 32px;
 	cursor: pointer;
+	padding: 18px;
 }
 .fa-xmark{
 	display: flex;
@@ -260,21 +263,61 @@ li:hover {
 	font-size: 19px;
 	cursor: pointer;
 	position: relative;
-	left: 259px;
+	left: 333px;
 	
 }
+.gallery-supprimer{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 15px;
+	grid-row-gap: 22px;
+	padding: 5px;
+	position: relative;
+	top: 99px;
+	width: 522px;
+	
+
+}
+.gallery-supprimer figure{
+	
+	width: 77px;
+	
+}
+.gallery-supprimer figure img{
+	
+	width: 100%;
+}
+.gallery-supprimer figure button{
+	position: absolute;
+	height: 23px;
+	margin-left: 49px;
+	margin-top: 4px;
+	background-color: black;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+
+}
+.gallery-supprimer figure .fa-trash-can{
+	color: white; 
+}
+
+
+
+
+
 /* ajouter photo */
 .ajouter-photo{
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgb(209, 184, 184);
-	width: 630px;
-	height: 688px;
+	background-color: white;
+	width: 760px;
+	height: 855px;
 	border-radius: 10px;
 	position: absolute;
 	top: 480px;
-    left: 580px;
+    left: 540px;
 }
 .ajouter-photo h2{
 	font-family: 'Work Sans' ;
@@ -285,24 +328,28 @@ li:hover {
 	color: black;
 }
 .ajouter-photo hr{
-	border: 1px solid #B3B3B3;
-	width: 420px;
+	border: 1px solid #070505;
+	width: 522px;
 	position: relative;
-	top: 532px;
+	top: 580PX;
 }
 .ajouter-photo #valider{
-	width: 237px;
-	height: 36px;
+	width: 268px;
+	height: 56px;
 	border-radius: 60px;
 	border: #1D6154;
-	background-color: #A7A7A7;
+	background-color:  #A7A7A7;
 	color: white;
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 14px;
 	position: relative;
-	top: 558px;
+	top: 628px;
 	cursor: pointer;
+	padding: 18px;
+	
+	
+	
 }
 .fa-arrow-left{
 	display: flex;
@@ -313,7 +360,7 @@ li:hover {
 	font-size: 19px;
 	cursor: pointer;
 	position: relative;
-	left: -259px;
+	left: -333px;
 }
 .ajouter-photo .icone{
 	display: flex;
@@ -370,3 +417,4 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+
