@@ -60,26 +60,52 @@
 		</div>
 	</section>
 
-	<section class="supprime-photo" aria-hidden="true" role="dialog" aria-labelledby="titleModal">
-		<h2 id="titleModal">Galerie photo</h2>
-		<i class="fa-solid fa-xmark"></i>
-		<div class="gallery-supprimer">
-			
-			
+	<section id="modal" class="modal" style="display: none;">
+		<div class="modal-content">
+			<!-- Vue pour supprimer des photos -->
+			<div id="deleteView" class="modal-view" style="display: none;">
+				<h2 id="titleModal">Galerie photo à supprimer</h2>
+				<!-- Bouton pour fermer la vue -->
+				<i class="fa-solid fa-xmark close-view"></i>
+				<div class="gallery-delete-container">
+					<!-- Contenu de la galerie de photos à supprimer -->
+				</div>
+			</div>
+	
+			<!-- Vue pour ajouter des photos -->
+			<div id="addView" class="modal-view">
+				<h2 id="titleModal">Ajouter une nouvelle photo</h2>
+				<!-- Bouton pour fermer la vue -->
+				<div class="icone">
+					<i class="fa-solid fa-arrow-left"></i>
+					<i class="fa-solid fa-xmark close-view"></i>
+				</div>
+				<!-- formulaire pour ajouter une nouvelle photo -->
+				<form id="formAddWord" method="post" enctype="multipart/form-data">
+		    
+					<div  class="custom">
+						<i class="fa-regular fa-image"></i>
+						
+						<label for="file-upload" class="custom-file-upload">
+							<input id="file-upload" type="file" accept=".jpg, .jpeg, .png">
+							+ Ajouter photo
+						</label>
+						<img id="uploaded-image" src=" " alt="Image chargée" style="display: none;">
+						<p>jpg, png : 4mo max</p>
+					</div>
+					
+					<label for="title">Titre</label>
+					<input type="text" id="title" name="title" required>
+		
+					<label for="categorie">Catégorie</label>
+		
+					<hr>
+					<button type="submit" id="valider">Valider</button>
+				</form>
+			</div>
 		</div>
-		<hr>
-		<button type="button" id="add-picture">Ajouter une photo</button>
 	</section>
-
-	<section class="ajouter-photo" aria-hidden="true" role="dialog" aria-labelledby="titleModal">
-		<h2 id="titleModal">Ajout photo</h2>
-		<div class="icone">
-			<i class="fa-solid fa-arrow-left"></i>
-		    <i class="fa-solid fa-xmark"></i>
-		</div>
-		<hr>
-		<button type="button" id="valider">Valider</button>
-	</section>
+	
 
 	<section id="contact">
 		<h2>Contact</h2>
