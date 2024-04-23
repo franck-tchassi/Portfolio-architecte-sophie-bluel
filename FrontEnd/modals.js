@@ -1,49 +1,12 @@
 // ouvrir la modal suprimer lorsque l'on click sur le bouton modifier
-const btnModifier = document.querySelector("#modal-modifier");
-
+const btnModifier = document.querySelector("#icone-modifier");
 btnModifier.addEventListener("click", function(e){
     e.preventDefault();
-
-    const modalOuvert = document.querySelector(".supprime-photo").style.display="flex";
+    const modalOuvert = document.getElementById("deleteView").style.display="flex";
     (modalOuvert == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
     openScrool();
-    afficheElement();
-   
 })
 
- 
-//fermer la modal suprimer  et le modal ajouter lorsque l'on click sur l'icone croix
-const icon1Fermer = document.querySelector(".fa-xmark")
-icon1Fermer.addEventListener("click", function(e){
-    e.preventDefault();
-    const modalFermer = document.querySelector(".supprime-photo").style.display="none";
-    (modalFermer == "none") ? document.querySelector("body").style.backgroundColor="white" : "" ;
-})
-
-const icon2Fermer = document.querySelector(".icone .fa-xmark")
-icon2Fermer.addEventListener("click", function(e){
-    e.preventDefault();
-    
-    document.querySelector(".ajouter-photo").style.display="none";
-})
-
-//bouton lorsque je click la modal pour ajouter les photos s'ouvre
-const btn_Addpicture = document.getElementById("add-picture");
-btn_Addpicture.addEventListener("click", function(e){
-    e.preventDefault();
-
-    document.querySelector(".supprime-photo").style.display="none";
-    document.querySelector(".ajouter-photo").style.display="flex";
-})
-
-//lorsque je click sur la flèche de la modal ajouter elle revien en arrière
-const modalPrecedente = document.querySelector(" .icone .fa-arrow-left");
-modalPrecedente.addEventListener("click", function(e){
-    e.preventDefault();
-
-    document.querySelector(".supprime-photo").style.display="flex";
-    document.querySelector(".ajouter-photo").style.display="none";
-})
 
 
 function openScrool(){
