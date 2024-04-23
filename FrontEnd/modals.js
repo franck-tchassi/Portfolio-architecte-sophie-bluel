@@ -7,6 +7,18 @@ btnModifier.addEventListener("click", function(e){
     openScrool();
 })
 
+// Sélectionnez le bouton de fermeture de la modal
+const closeButton = document.querySelector(".close-view");
+// Ajoutez un écouteur d'événements au bouton de fermeture
+closeButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    // Supprimez la classe "flex" de l'élément deleteView
+    document.querySelector(".closing").style.display="none";
+    // Réinitialisez les styles du corps
+    document.body.style.backgroundColor = "initial";
+    // Exécutez d'autres actions nécessaires
+});
+
 
 
 function openScrool(){
