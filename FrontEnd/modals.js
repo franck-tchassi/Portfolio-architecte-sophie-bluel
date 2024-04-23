@@ -19,6 +19,45 @@ closeButton.addEventListener("click", function(e) {
     // Exécutez d'autres actions nécessaires
 });
 
+// Fonction pour afficher les travaux dans la galerie de photos à supprimer
+async function afficherTravauxDansGalerie() {
+    const reponse = await fetch("http://localhost:5678/api/works");
+    const works = await reponse.json();
+
+    const modalGallery = document.querySelector(".modal-gallery");
+    modalGallery.innerHTML = ""; // Effacer le contenu actuel de la galerie
+
+    works.forEach(travail => {
+        const figure = document.createElement("figure");
+        const image = document.createElement("img");
+        image.src = travail.imageUrl;
+
+        const figcaption = document.createElement("figcaption");
+        figcaption.innerText = travail.title;
+
+        const buttonIcone = document.createElement("button");
+        buttonIcone.classList.add("supprimer-work")
+        const iconeElement = document.createElement("i");
+        iconeElement.classList.add("fa-solid", "fa-trash-can");
+        
+        //recuperer les id du works
+        const travail_id =  travail.id ;
+        //stocker les id des elements
+        figure.setAttribute("data-travail-id", travail_id)
+
+
+        buttonIcone.appendChild(iconeElement )
+        figure.appendChild(buttonIcone);
+        figure.appendChild(image);
+        figure.appendChild(figcaption);
+        modalGallery.appendChild(figure);
+       
+    });
+   
+}
+// Appel de la fonction pour afficher les travaux dans la galerie
+afficherTravauxDansGalerie();
+
 
 
 function openScrool(){
