@@ -51,6 +51,33 @@ async function afficherTravauxDansGalerie() {
         figure.appendChild(image);
         figure.appendChild(figcaption);
         modalGallery.appendChild(figure);
+
+
+        //ajout un click sur l'élement pour le supprimer
+        buttonIcone.addEventListener("click", async () => { 
+            const travailTrouve = works.find(travail => travail.id === travail_id);
+            const authToken = localStorage.getItem("authToken")
+            if (travailTrouve) {
+                try {
+                    // Envoyer une requête DELETE à l'API avec l'ID du travail à supprimer
+                    await fetch(`http://localhost:5678/api/works/${travail_id}`, {
+                        method: "DELETE",
+                        headers:{
+                            Authorization:`Bearer ${authToken}`,
+                            'Accept': 'application/json'
+                        }
+                    });
+                    // Actualiser la galerie après la suppression
+                   afficherTravauxDansGalerie();
+                    console.log("travail supprimer:", travailTrouve)
+                } catch (err) {
+                    console.log("Erreur lors de la suppression du travail :", err);
+                }
+            } 
+            else {
+                console.log("Travail non trouvé dans la liste.");
+            }
+        });
        
     });
    
