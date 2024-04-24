@@ -6,18 +6,24 @@ btnModifier.addEventListener("click", function(e){
     (modalOuvert == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
     openScrool();
 })
-
-// Sélectionnez le bouton de fermeture de la modal
-const closeButton = document.querySelector(".close-view");
-// Ajoutez un écouteur d'événements au bouton de fermeture
-closeButton.addEventListener("click", function(e) {
+// ouvrir la modal ajouter element lorsque l'on click sur le bouton du modal supprimer
+const btnModal1 = document.querySelector("#add-picture");
+btnModal1.addEventListener("click", function(e){
     e.preventDefault();
-    // Supprimez la classe "flex" de l'élément deleteView
-    document.querySelector(".closing").style.display="none";
-    // Réinitialisez les styles du corps
-    document.body.style.backgroundColor = "initial";
-    // Exécutez d'autres actions nécessaires
-});
+    const modalOpen = document.getElementById("addView").style.display="flex";
+    (modalOpen == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
+    (modalOpen == "flex") ? document.getElementById("deleteView").style.display="none" : "" ;
+})
+// clicker pour faire une marche en arrière sur la modal supprimer
+const btnModal2 = document.querySelector(".return-view");
+btnModal2.addEventListener("click", function(e){
+    e.preventDefault();
+    const modalReturn = document.getElementById("deleteView").style.display="flex";
+   // (modalOpen == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
+    (modalReturn == "flex") ? document.getElementById("addView").style.display="none" : "" ;
+})
+
+
 
 // Fonction pour afficher les travaux dans la galerie de photos à supprimer
 async function afficherTravauxDansGalerie() {
