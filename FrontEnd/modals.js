@@ -22,6 +22,25 @@ btnModal2.addEventListener("click", function(e){
    // (modalOpen == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
     (modalReturn == "flex") ? document.getElementById("addView").style.display="none" : "" ;
 })
+// Sélectionnez le bouton de fermeture de la modal supprimer
+const deleteCloseButton = document.querySelector(".close-view1");
+deleteCloseButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    // fermer la modal supprimer
+    document.getElementById("deleteView").style.display = "none";
+    // Réinitialisez les styles du corps
+    document.body.style.backgroundColor = "initial";
+});
+
+// Sélectionnez le bouton de fermeture de la modal ajouter
+const addCloseButton = document.querySelector(".close-view2");
+addCloseButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    // fermer la modal ajouter
+    document.getElementById("addView").style.display = "none";
+    // Réinitialisez les styles du corps
+    document.body.style.backgroundColor = "initial";
+});
 
 
 
