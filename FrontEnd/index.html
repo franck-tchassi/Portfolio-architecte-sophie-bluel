@@ -66,7 +66,7 @@
 			<div id="deleteView" class="modal1-view  closing" style="display: none;">
 				<h2 id="titleModal">Galerie photo</h2>
 				<!-- Bouton pour fermer la vue -->
-				<i class="fa-solid fa-xmark close-view"></i>
+				<span class="modal-xmark"><i class="fa-solid fa-xmark close-view"></i></span>
 				<div class="modal-gallery">
 					<!-- Contenu de la galerie de photos à supprimer -->
 				</div>
@@ -75,34 +75,41 @@
 			</div>
 	
 			<!-- Vue pour ajouter des photos -->
-			<div id="addView" class="modal-view">
-				<h2 id="titleModal">Ajouter une nouvelle photo</h2>
-				<!-- Bouton pour fermer la vue -->
-				<div class="icone">
-					<i class="fa-solid fa-arrow-left"></i>
+			<div id="addView" class="modal2-view">
+				<!-- Bouton pour fermer la vue et faire un retour -->
+				<div class="modal-icone">
+					<i class="fa-solid fa-arrow-left return-view"></i>
 					<i class="fa-solid fa-xmark close-view"></i>
 				</div>
+				<h2 id="titleModal">Ajouter une nouvelle photo</h2>
 				<!-- formulaire pour ajouter une nouvelle photo -->
-				<form id="formAddWord" method="post" enctype="multipart/form-data">
-		    
-					<div  class="custom">
-						<i class="fa-regular fa-image"></i>
+				<form id="modal-form" method="post" enctype="multipart/form-data">
+					<div id="modalform-addpicture"> 
+
+						<section  class="custom">
+							<img id="icone-svg" src="assets/icons/Vector.svg" alt="icone_svg">
+							<label for="file-upload" class="custom-file-upload">
+								<input id="file-upload" type="file" accept="image/*" required>
+								+ Ajouter photo
+							</label>
+							<img id="uploaded-image" src=" " alt="Image chargée" style="display: none;"> 
+							<p>jpg, png : 4mo max</p>
+						</section>
 						
-						<label for="file-upload" class="custom-file-upload">
-							<input id="file-upload" type="file" accept=".jpg, .jpeg, .png">
-							+ Ajouter photo
-						</label>
-						<img id="uploaded-image" src=" " alt="Image chargée" style="display: none;">
-						<p>jpg, png : 4mo max</p>
-					</div>
-					
-					<label for="title">Titre</label>
-					<input type="text" id="title" name="title" required>
-		
-					<label for="categorie">Catégorie</label>
-		
+						<section class="modal-title-categorie">
+							<label for="title">Titre</label>
+						    <input type="text" id="title" name="title" required>
+							<label for="categorie">Catégorie</label>
+							<div class="select">
+								<select id="categorie" name="category" required>
+									<option value="">.<!-- insertAPIw/categories --></option>
+								</select>
+							</div>
+						</section>
+
+				        </div> 
 					<hr>
-					<button type="submit" id="valider">Valider</button>
+					<button type="submit" id="valider" disabled>Valider</button>
 				</form>
 			</div>
 	
