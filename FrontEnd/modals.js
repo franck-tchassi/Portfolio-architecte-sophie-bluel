@@ -21,6 +21,13 @@ btnModal2.addEventListener("click", function(e){
     const modalReturn = document.getElementById("deleteView").style.display="flex";
    // (modalOpen == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
     (modalReturn == "flex") ? document.getElementById("addView").style.display="none" : "" ;
+
+    //Réinitialisation de l'affichage de l'image et suppression de l'URL de l'image du localStorage lorsque on click sur le bouton revenir en arrière
+    document.getElementById("uploaded-image").style.display = "none";
+    document.querySelector(".custom-file-upload").style.display = "flex";
+    document.querySelector(".custom p").style.display = "flex";
+    document.getElementById("icone-svg").style.display = "flex";
+    localStorage.removeItem("imageURL")
 })
 // Sélectionnez le bouton de fermeture de la modal supprimer
 const deleteCloseButton = document.querySelector(".close-view1");
@@ -40,6 +47,13 @@ addCloseButton.addEventListener("click", function(e) {
     document.getElementById("addView").style.display = "none";
     // Réinitialisez les styles du corps
     document.body.style.backgroundColor = "initial";
+
+    //Réinitialisation de l'affichage de l'image et suppression de l'URL de l'image du localStorage lorsque on click sur le bouton de fermeture 
+    document.getElementById("uploaded-image").style.display = "none";
+    document.querySelector(".custom-file-upload").style.display = "flex";
+    document.querySelector(".custom p").style.display = "flex";
+    document.getElementById("icone-svg").style.display = "flex";
+    localStorage.removeItem("imageURL")
 });
 
 
