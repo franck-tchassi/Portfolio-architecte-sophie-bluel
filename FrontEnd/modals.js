@@ -4,7 +4,7 @@ btnModifier.addEventListener("click", function(e){
     e.preventDefault();
     const modalOuvert = document.getElementById("deleteView").style.display="flex";
     (modalOuvert == "flex") ? document.querySelector("body").style.backgroundColor="#0000004D" : "" ;
-    openScrool();
+    
 })
 // ouvrir la modal ajouter element lorsque l'on click sur le bouton du modal supprimer
 const btnModal1 = document.querySelector("#add-picture");
@@ -27,7 +27,15 @@ btnModal2.addEventListener("click", function(e){
     document.querySelector(".custom-file-upload").style.display = "flex";
     document.querySelector(".custom p").style.display = "flex";
     document.getElementById("icone-svg").style.display = "flex";
-    localStorage.removeItem("imageURL")
+    localStorage.removeItem("imageURL");
+    
+    //vider le title et option lorsque l'on quitte la modal ajouter
+    titleInput.value = "";
+    localStorage.removeItem("titleSaisir")
+    contenuOption.value = "";
+    localStorage.removeItem("option")
+    //désactiver le bouton de validation
+    validerButton.style.backgroundColor = "";
 })
 // Sélectionnez le bouton de fermeture de la modal supprimer
 const deleteCloseButton = document.querySelector(".close-view1");
@@ -54,6 +62,14 @@ addCloseButton.addEventListener("click", function(e) {
     document.querySelector(".custom p").style.display = "flex";
     document.getElementById("icone-svg").style.display = "flex";
     localStorage.removeItem("imageURL")
+
+    //vider le title et option lorsque l'on quitte la modal ajouter
+    titleInput.value = "";
+    localStorage.removeItem("titleSaisir")
+    contenuOption.value = "";
+    localStorage.removeItem("option")
+    //désactiver le bouton de validation
+    validerButton.style.backgroundColor = "";
 });
 
 
@@ -126,54 +142,61 @@ afficherTravauxDansGalerie();
 
 
 
-function openScrool(){
-    const scroll = document.querySelector(".supprime-photo .gallery-supprimer");
-    // Récupérer la hauteur de l'élément scroll en tant que nombre entier
-    const hauteur = parseInt(window.getComputedStyle(scroll).height);
+//ajout photo de mon repertoire
+let imageURL = "";
+function uploadImage() {
+    const fileInput = document.getElementById("file-upload");
+    const uploadedImage = document.getElementById("uploaded-image");
 
-    // Vérifier si la hauteur est supérieure à 385px
-    if (hauteur > 385) {
-        // Si la hauteur est supérieure à 385px, ajouter la propriété overflow: scroll
-        document.querySelector(".supprime-photo").style.overflow = "scroll";
-    }
-}
-
-
-//ajouter les photos de mon backend au modal supprimer-photo
-
-function createElement(works){
-
-    const  parentElement = document.querySelector(".supprime-photo .gallery-supprimer");
-
-
-    for(let i=0; i< works.length ; i++){
-
-        const figureElement = document.createElement("figure")
-        const buttonElement = document.createElement("button")
-        const iconElement = document.createElement("i");
-
-        const imageElement = document.createElement("img");
-        imageElement.src =  works[i].imageUrl;
-
+    fileInput.addEventListener("change", function(event) {
+        event.preventDefault();
+        const file = event.target.files[0];
         
-        parentElement.appendChild(figureElement);
-        figureElement.appendChild(buttonElement);
-        figureElement.appendChild(imageElement);
-        iconElement.classList.add("fa-regular", "fa-trash-can");
-        buttonElement.appendChild(iconElement);
-    
-    }
+        // Vérifier si un fichier a été sélectionné
+        if (file) {
+            const extension = file.name.split('.').pop().toLowerCase();
+            if (extension === 'png' || extension === 'jpg') {
+                const fileSizeInBytes = file.size;
+                const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+                if(fileSizeInMegabytes <= 4){
+                    const reader = new FileReader();
 
+                    reader.onload = function(e) {
+                        
+                        imageURL = e.target.result;
+                        localStorage.setItem("imageURL", imageURL);
+                        uploadedImage.src = imageURL;
+                        uploadedImage.style.display = "block"; // Afficher l'image
+                        document.querySelector(".custom-file-upload").style.display = "none";
+                        document.querySelector(".custom p").style.display = "none";
+                        document.getElementById("icone-svg").style.display = "none";
+                        verifierRemplissage()
+                    };
+                    reader.readAsDataURL(file);
+                    
+                }else{
+                 alert('taille du fichier superieur à 4mo');
+                 fileInput.value = ''; // Réinitialiser la valeur de l'élément input pour vider la sélection
+                 uploadedImage.src = ""; // Réinitialiser l'image
+                 uploadedImage.style.display = "none"; // Cacher l'image
+               }
+               
+            } else {
+                alert('Veuillez sélectionner un fichier PNG .');
+                fileInput.value = ''; // Réinitialiser la valeur de l'élément input pour vider la sélection
+                uploadedImage.src = ""; // Réinitialiser l'image
+                uploadedImage.style.display = "none"; // Cacher l'image
+            }
+            
+        }
+    });
 }
-// function affiche element créer
+window.addEventListener("load", function() {
+    uploadImage()
+});
 
-async function afficheElement(){
-    try{
-        const reponse = await fetch("http://localhost:5678/api/works");
-        const works = await reponse.json();
 
-        createElement(works);
-    }catch(err){
-        console.log("problemme de connexion  au donnée works", err)
-    }
-}
+
+
+
+
