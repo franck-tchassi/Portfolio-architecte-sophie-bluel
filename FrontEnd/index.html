@@ -75,11 +75,11 @@
 			</div>
 	
 			<!-- Vue pour ajouter des photos -->
-			<div id="addView" class="modal2-view">
+			<div id="addView" class="modal2-view closing">
 				<!-- Bouton pour fermer la vue et faire un retour -->
 				<div class="modal-icone">
 					<i class="fa-solid fa-arrow-left return-view"></i>
-					<i class="fa-solid fa-xmark close-view"></i>
+					<i class="fa-solid fa-xmark close-view2"></i>
 				</div>
 				<h2 id="titleModal">Ajouter une nouvelle photo</h2>
 				<!-- formulaire pour ajouter une nouvelle photo -->
@@ -101,15 +101,15 @@
 						    <input type="text" id="title" name="title" required>
 							<label for="categorie">Catégorie</label>
 							<div class="select">
-								<select id="categorie" name="category" required>
-									<option value="">.<!-- insertAPIw/categories --></option>
+								<select id="modal-categorie" name="category" required>
+									
 								</select>
 							</div>
 						</section>
 
 				        </div> 
 					<hr>
-					<button type="submit" id="valider" disabled>Valider</button>
+					<button type="submit" id="modal-valider">Valider</button>
 				</form>
 			</div>
 	
