@@ -210,19 +210,20 @@ li:hover {
 /* ********************************************************************* */
 /* modal1  */
 .modal1-view{
-	display: none;
+	
 	flex-direction: column;
 	align-items: center;
 	background-color: white;
 	width: 760px;
-	height: 855px;
+	height: 788px;
 	border-radius: 10px;
-	position: absolute;
-	top: 480px;
-    left: 540px;
+	position: fixed;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 	
 }
-.gallery-delete-container{
+#deleteView .modal-gallery{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 15px;
@@ -231,6 +232,8 @@ li:hover {
 	position: relative;
 	top: 99px;
 	width: 522px;
+	max-height: 375px;
+    overflow-y: auto;
 }
 .modal1-view #add-picture{
 	width: 268px;
@@ -243,11 +246,11 @@ li:hover {
 	font-weight: 700;
 	font-size: 14px;
 	position: relative;
-	top: 32px;
+	top: 322px;
 	cursor: pointer;
 	padding: 18px;
 }
-.modal1-view h2, .modal2-view h2{
+.modal1-view h2{
 	font-family: 'Work Sans' ;
 	font-weight: 400;
 	font-size:26px ;
@@ -260,26 +263,27 @@ li:hover {
 	width: 522px;
 	position: relative;
 	
-	margin-top: 282px;
+	top: 282px;
 }
 .fa-xmark{
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	width: 24px;
 	height: 24px;
 	font-size: 19px;
 	cursor: pointer;
-	position: relative;
-	left: 333px;
 }
-.modal1-view figure{
+.modal-xmark{
+	display: flex;
+    align-items: center;
+    margin-left: 680px;
+    justify-content: center;
+}
+.modal1-view .modal-gallery figure{
 	width: 77px;
 }
-.modal1-view figure img{
+.modal1-view .modal-gallery figure img{
 	width: 100%;
 }
-.modal1-view figure button{
+.modal1-view .modal-gallery figure button{
 	position: absolute;
 	height: 23px;
 	margin-left: 49px;
@@ -289,9 +293,14 @@ li:hover {
 	border: none;
 	cursor: pointer;
 }
-.modal1-view figure .fa-trash-can{
+.modal1-view .modal-gallery figure .fa-trash-can{
 	color: white; 
 }
+.modal1-view .modal-gallery figure figcaption{
+	display: none;
+}
+
+
 /* modal2  */
 .modal2-view{
 	display: none;
@@ -299,33 +308,52 @@ li:hover {
 	align-items: center;
 	background-color: white;
 	width: 760px;
-	height: 855px;
+	height: 788px;
 	border-radius: 10px;
-	position: absolute;
-	top: 480px;
-    left: 540px;
+	position: fixed;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 }
-.modal2-view .icone{
+.modal2-view .modal-icone{
 	display: flex;
+	width: 95%;
+	align-items: center;
+    justify-content: space-between;
+	position: relative;
+    top: 20px;
 }
 .fa-arrow-left{
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	width: 24px;
 	height: 24px;
 	font-size: 19px;
 	cursor: pointer;
-	position: relative;
-	left: -333px;
 }
-
+.modal2-view h2{
+	display: flex;
+	justify-content: center;
+	font-family: 'Work Sans' ;
+	font-weight: 400;
+	font-size:26px ;
+	position: relative;
+	top: 45px;
+	width: 100%;
+	color: black;
+}
 .modal2-view form{
 	display: flex;
+	justify-content: center;
+    align-items: center;
 	flex-direction: column;
+	width: 100%;
 	gap: 33px;
 	position: relative;
-	top: 119px;
+	top: 80px;
+}
+form #modalform-addpicture{}
+form .modal-title-categorie{
+	display: grid;
+    grid-row-gap: 20px;
 }
 .modal2-view form input[type="text"]{
 	width: 419px;
@@ -333,27 +361,24 @@ li:hover {
     box-shadow: 0px 4px 14px 0px #00000017;
 	border: none;
 }
-.modal2-view form select[id="categories"]{
+.modal2-view form .modal-title-categorie .select select[id="modal-categorie"]{
 	width: 419px;
 	height: 51px;
     box-shadow: 0px 4px 14px 0px #00000017;
 	border: none;
-	position: relative;
-    top: -130px;
-}
-.modal2-view form hr{
-	border: 1px solid #B3B3B3;
-	width: 419px;
-	position: relative;
-    top: 90px;
 	
 }
-.modal2-view form #valider{
+
+.modal2-view form hr{
+	border: 1px solid #B3B3B3;
+	width: 65%;
+}
+.modal2-view form #modal-valider{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 237px;
-	height: 36px;
+	width: 30%;
+    height: 40px;
 	border-radius: 60px;
 	border: #1D6154;
 	background-color:#A7A7A7;
@@ -361,11 +386,6 @@ li:hover {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 14px;
-	cursor: pointer;
-	margin-left: 88px;
-	position: relative;
-    top: 80px;
-	
 }
 
 .modal2-view form .custom{
@@ -406,14 +426,12 @@ form .custom .fa-image{
 	color: #306685;
 }
 
-.form .custom #uploaded-image{
+form #modalform-addpicture .custom #uploaded-image{
 	width: 130px;
-    height: 170px;
+    height: 171px;
     position: absolute;
 }
-
 /* ******************************************************************* */
-
 
 
 
