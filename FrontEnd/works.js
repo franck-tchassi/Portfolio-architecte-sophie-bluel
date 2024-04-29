@@ -1,3 +1,10 @@
+//événement qui nous redirige vers la page de login
+const login = document.getElementById("login");
+login.addEventListener("click", (e)=>{
+    e.preventDefault();
+    window.location.href = "login.html"
+})
+
 // Fonction pour afficher les catégories
 function afficheCategories(categories){
     // Sélectionner l'élément parent
@@ -38,14 +45,6 @@ async function afficheTousCategories() {
 
 //  récupérer et afficher toutes les catégories par défaut
 afficheTousCategories();
-
-
-
-
-
-
-
-
 
 
 // Fonction pour afficher les travaux
