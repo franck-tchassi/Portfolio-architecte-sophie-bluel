@@ -47,7 +47,7 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
-body {
+body .body-container {
 	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
@@ -219,7 +219,7 @@ li:hover {
 	border-radius: 10px;
 	position: fixed;
 	top: 50%;
-    left: 50%;
+        left: 50%;
 	transform: translate(-50%, -50%);
 	
 }
@@ -233,7 +233,7 @@ li:hover {
 	top: 99px;
 	width: 522px;
 	max-height: 375px;
-    overflow-y: auto;
+        overflow-y: auto;
 }
 .modal1-view #add-picture{
 	width: 268px;
@@ -245,8 +245,8 @@ li:hover {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 14px;
-	position: relative;
-	top: 322px;
+	position: absolute;
+	top: 662px;
 	cursor: pointer;
 	padding: 18px;
 }
@@ -261,9 +261,8 @@ li:hover {
 .modal1-view hr{
 	border: 1px solid #B3B3B3;
 	width: 522px;
-	position: relative;
-	
-	top: 282px;
+	position: absolute;
+	top: 602px;
 }
 .fa-xmark{
 	width: 24px;
@@ -312,16 +311,16 @@ li:hover {
 	border-radius: 10px;
 	position: fixed;
 	top: 50%;
-    left: 50%;
+        left: 50%;
 	transform: translate(-50%, -50%);
 }
 .modal2-view .modal-icone{
 	display: flex;
 	width: 95%;
 	align-items: center;
-    justify-content: space-between;
+        justify-content: space-between;
 	position: relative;
-    top: 20px;
+        top: 20px;
 }
 .fa-arrow-left{
 	width: 24px;
@@ -343,28 +342,27 @@ li:hover {
 .modal2-view form{
 	display: flex;
 	justify-content: center;
-    align-items: center;
+        align-items: center;
 	flex-direction: column;
 	width: 100%;
 	gap: 33px;
 	position: relative;
 	top: 80px;
 }
-form #modalform-addpicture{}
 form .modal-title-categorie{
 	display: grid;
-    grid-row-gap: 20px;
+        grid-row-gap: 20px;
 }
 .modal2-view form input[type="text"]{
 	width: 419px;
 	height: 51px;
-    box-shadow: 0px 4px 14px 0px #00000017;
+        box-shadow: 0px 4px 14px 0px #00000017;
 	border: none;
 }
 .modal2-view form .modal-title-categorie .select select[id="modal-categorie"]{
 	width: 419px;
 	height: 51px;
-    box-shadow: 0px 4px 14px 0px #00000017;
+        box-shadow: 0px 4px 14px 0px #00000017;
 	border: none;
 	
 }
@@ -378,7 +376,7 @@ form .modal-title-categorie{
 	align-items: center;
 	justify-content: center;
 	width: 30%;
-    height: 40px;
+        height: 50px;
 	border-radius: 60px;
 	border: #1D6154;
 	background-color:#A7A7A7;
@@ -386,6 +384,8 @@ form .modal-title-categorie{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 14px;
+	position: relative;
+	bottom: 10px;
 }
 
 .modal2-view form .custom{
@@ -428,11 +428,22 @@ form .custom .fa-image{
 
 form #modalform-addpicture .custom #uploaded-image{
 	width: 130px;
-    height: 171px;
-    position: absolute;
+        height: 171px;
+        position: absolute;
 }
 /* ******************************************************************* */
-
+.adminfeature-edition{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	background-color: black;
+	color: white;
+	height: 59px;
+	width: 100%;
+	margin: 0;
+}
 
 
 #contact {
