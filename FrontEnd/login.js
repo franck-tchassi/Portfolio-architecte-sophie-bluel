@@ -44,22 +44,6 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-// Exécuter le code pour masquer l'élément avec l'ID "filters" si la redirection vers index.html a été effectuée
-document.addEventListener("DOMContentLoaded", function() {
-    const authToken = localStorage.getItem('authToken');
-    if (authToken !== null) {
-        document.getElementById("filters").style.display = "none";
-		document.getElementById("login").style.display = "none";
-		document.getElementById("logout").style.display = "flex";
-		document.querySelector(".modifier").style.display = "flex";
-       
-    }
-});
 
-const logout = document.querySelector("#logout");
-logout.addEventListener("click", function(e){
-    e.preventDefault();
 
-	window.location.href="login.html";
-	localStorage.removeItem("authToken")
-})
+
