@@ -210,7 +210,7 @@ li:hover {
 /* ********************************************************************* */
 /* modal1  */
 .modal1-view{
-	
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	background-color: white;
@@ -427,6 +427,7 @@ form .custom .fa-image{
 }
 
 form #modalform-addpicture .custom #uploaded-image{
+	display: none;
 	width: 130px;
         height: 171px;
         position: absolute;
@@ -444,7 +445,9 @@ form #modalform-addpicture .custom #uploaded-image{
 	width: 100%;
 	margin: 0;
 }
-
+#logout{
+	display: none;
+}
 
 #contact {
 	width: 50%;
