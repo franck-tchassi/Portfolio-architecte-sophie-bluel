@@ -88,8 +88,6 @@ afficherTousLesTravaux();
 
 // Filtrer et afficher les travaux lorsque les boutons de filtrage sont cliqués
 document.querySelector("#filter-1").addEventListener("click", afficherTousLesTravaux);
-document.querySelector("#filter-2").addEventListener("click", () => filtrerEtAfficherWorks("Objets"));
-document.querySelector("#filter-3").addEventListener("click", () => filtrerEtAfficherWorks("Appartements"));
-document.querySelector("#filter-4").addEventListener("click", () => filtrerEtAfficherWorks("Hotels & restaurants"));
+
 
 
